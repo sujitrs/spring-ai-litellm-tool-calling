@@ -18,22 +18,11 @@ class MyController {
     @GetMapping("/ai")
     String generation(String userInput) {
 
-        /*ChatModel chatModel = OpenAiChatModel.builder();
-
-        String response = ChatClient.create(chatModel)
-                .prompt("What day is tomorrow?")
-                .tools(new DateTimeTools())
-                .call()
-                .content();*/
 
         return this.chatClient.prompt().tools(new MyTools())
                 .user(userInput)
                 .call()
                 .content();
-/*        return this.chatClient.prompt()
-                .user(userInput)
-                .call()
-                .content();*/
 
 
     }
